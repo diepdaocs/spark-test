@@ -55,6 +55,7 @@ public class FindActivationDate {
         .select(
             col(PHONE_NUMBER_COL), callUDF(FUNC_FIND_ACT_DATE, col(PERIODS_COL)).alias(RESULT_COL))
         .write()
+        .option("header", true)
         .csv(outputFile);
   }
 
